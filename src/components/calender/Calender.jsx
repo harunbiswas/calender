@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import CalenderItem from "./CalenderItem";
 
-export default function Calender() {
+export default function Calender({ handler, setCheckData }) {
   const [firstMon, setFirstMon] = useState({
     year: new Date().getFullYear(),
     month: new Date().getMonth(),
@@ -60,7 +60,10 @@ export default function Calender() {
       start: new Date(selectDate[0]),
       end: new Date(selectDate[1]),
     };
-    console.log(data);
+    if (selectDate.length === 2) {
+      setCheckData(data);
+      handler(false);
+    }
   };
 
   const [screenW, setScreenW] = useState(window.innerWidth);
@@ -108,7 +111,14 @@ export default function Calender() {
             </div>
           </div>
           <div className="calender-footer-btns">
-            <button className="cancel">Cancel</button>
+            <button
+              className="cancel"
+              onClick={() => {
+                handler(false);
+              }}
+            >
+              Cancel
+            </button>
             <button onClick={submitHandler} className="success">
               Cera le offerte!
             </button>

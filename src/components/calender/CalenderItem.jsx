@@ -18,10 +18,10 @@ export default function CalenderItem({ data = {}, select = [] }) {
   return (
     <div className="calender-item-wrp">
       <div className="calender-item-head">
-        <h2>
+        <strong>
           {" "}
-          {dates[14].date.format("MMMM")} {dates[14].date.year()}
-        </h2>
+          {dates[14].date.format("MMMM")} <span> {dates[14].date.year()}</span>
+        </strong>
       </div>
       <div className="calender-item">
         {days.map((d, i) => (
@@ -48,8 +48,11 @@ export default function CalenderItem({ data = {}, select = [] }) {
                 "selected") ||
               date
             } ${
+              current &&
               select.selectDate.length === 2 &&
+              current &&
               select.selectDate[0].valueOf() <= date.valueOf() &&
+              current &&
               select.selectDate[1].valueOf() >= date.valueOf() &&
               "inselect"
             }`}

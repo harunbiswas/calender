@@ -1,0 +1,204 @@
+import React, { useState } from "react";
+import EventListener from "react-event-listener";
+import DropdownGroup from "./DropdownGroup";
+import {
+  Calendar,
+  Dollar,
+  FiveStar,
+  Location,
+  SearchIcon,
+  Stelle,
+} from "./Icon";
+
+import Calender from "./calender/Calender";
+
+const Footer = () => {
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+  const handleKeyboardEvent = (event) => {
+    setIsKeyboardOpen(event.detail.isKeyboardOpen);
+  };
+
+  // calender
+  const [isCalender, setIsCalender] = useState(false);
+  const [checkData, setCheckData] = useState({});
+
+  const checkHandler = () => {
+    setIsCalender(true);
+  };
+
+  console.log(checkData);
+  return (
+    <footer style={{ position: isKeyboardOpen ? "relative" : "sticky" }}>
+      <EventListener
+        target="window"
+        onResize={handleKeyboardEvent}
+        onScreenResize={handleKeyboardEvent}
+      />
+      <div className="container-fluid">
+        <div className="footer-wrapper d-none d-sm-flex">
+          <DropdownGroup
+            label="Comune"
+            icon={<Location />}
+            data={selectData}
+            position="top"
+          />
+          <DropdownGroup
+            label="Distanza dal mare"
+            icon={<Stelle />}
+            data={stelle}
+            position="top"
+          />
+          <DropdownGroup
+            label="Fascia di Prezzo "
+            smText="(per persona)"
+            icon={<Dollar />}
+            data={fascio}
+            position="top"
+          />
+          <DropdownGroup
+            label="Stelle"
+            icon={<FiveStar />}
+            data={stelle}
+            position="top"
+          />
+          <div className="custom-dropdown">
+            <label htmlFor="checkin">Check In</label>
+            <input
+              type="text"
+              value={
+                (checkData.start && new Date(checkData.start).toDateString()) ||
+                new Date().toDateString()
+              }
+              onClick={checkHandler}
+            />
+            <span className="icon">
+              <Calendar />
+            </span>
+          </div>
+          <div className="custom-dropdown">
+            <label htmlFor="checkin">Check Out</label>
+            <input
+              type="text"
+              value={
+                (checkData.end && new Date(checkData.end).toDateString()) ||
+                new Date().toDateString()
+              }
+              onClick={checkHandler}
+            />
+            <span className="icon">
+              <Calendar />
+            </span>
+          </div>
+
+          <button type="submit" className="cmn-btn d-none d-sm-flex">
+            <SearchIcon /> Find a Best Hotel
+          </button>
+        </div>
+        <div className="footer-wrapper d-sm-none">
+          <DropdownGroup
+            label="Check In"
+            icon={<Calendar />}
+            data={checkin}
+            position="top"
+          />
+          <DropdownGroup
+            label="Check Out"
+            icon={<Calendar />}
+            data={checkout}
+            position="top"
+          />
+        </div>
+      </div>
+
+      {isCalender && (
+        <Calender handler={setIsCalender} setCheckData={setCheckData} />
+      )}
+    </footer>
+  );
+};
+
+const selectData = [
+  {
+    name: "Tutta l’isola",
+  },
+  {
+    name: "Tutta",
+  },
+  {
+    name: "Tutta l’isola",
+  },
+  {
+    name: "Tutta ",
+  },
+];
+const fascio = [
+  {
+    name: "100€ - 1000€",
+  },
+  {
+    name: "100€ - 1000€",
+  },
+  {
+    name: "100€ - 1000€",
+  },
+  {
+    name: "100€ - 1000€",
+  },
+];
+const stelle = [
+  {
+    name: "5 Stelle",
+  },
+  {
+    name: "15 Stelle",
+  },
+  {
+    name: "25 Stelle",
+  },
+  {
+    name: "35 Stelle ",
+  },
+];
+const distance = [
+  {
+    name: "1 km - 5 km",
+  },
+  {
+    name: "5 km - 10 km",
+  },
+  {
+    name: "1 km - 15 km",
+  },
+  {
+    name: "50km+ ",
+  },
+];
+const checkout = [
+  {
+    name: "Sun 12/4",
+  },
+  {
+    name: "Sun 12/4",
+  },
+  {
+    name: "Sun 12/4",
+  },
+  {
+    name: "Sun 12/4",
+  },
+];
+const checkin = [
+  {
+    name: "Fri 12/2",
+  },
+  {
+    name: "Fri 12/2",
+  },
+  {
+    name: "Fri 12/2",
+  },
+  {
+    name: "Fri 12/2",
+  },
+];
+export default Footer;
