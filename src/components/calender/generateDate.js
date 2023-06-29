@@ -15,7 +15,6 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {
   for (let i = firstDateOfMonth.date(); i <= lastDateOfMonth.date(); i++) {
     const today = dayjs();
     const passDate = firstDateOfMonth.date(i);
-    console.log(today.diff(passDate, "day"));
 
     if (today.diff(passDate, "day") <= 0) {
       arrayOfDate.push({
