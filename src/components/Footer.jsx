@@ -26,7 +26,6 @@ const Footer = () => {
     setIsCalender(true);
   };
 
-  console.log(checkData);
   return (
     <footer style={{ position: isKeyboardOpen ? "relative" : "sticky" }}>
       <EventListener

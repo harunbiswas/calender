@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import CalenderItem from "./CalenderItem";
@@ -13,6 +14,7 @@ export default function Calender({ handler, setCheckData }) {
   });
 
   const [selectDate, setSelectDate] = useState([]);
+
   const selectHandler = (e) => {
     setSelectDate((prev) => {
       if (prev.length === 0) {
@@ -76,7 +78,13 @@ export default function Calender({ handler, setCheckData }) {
       <div className="calender">
         <div className="calender-head">
           <a href="#">check in</a>
-          <strong>Select Date: 10 to 12</strong>
+          <strong>
+            Select Date:{" "}
+            {selectDate.length === 2 &&
+              `${moment(selectDate[0]).format("DD MMM")} to ${moment(
+                selectDate[0]
+              ).format("DD MMM")}`}
+          </strong>
         </div>
         <div className="calender-body">
           <div className="arrow-btns">

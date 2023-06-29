@@ -1466,9 +1466,9 @@ textarea.__form-control {
 $colro-black: #000;
 $color-white: #fff;
 $color-theme: #08061c;
-$color-cheap: #f36b93;
-$color-medium: #31deb4;
-$color-expensive: #27b8e1;
+$color-cheap: #31deb4;
+$color-medium: #27b8e1;
+$color-expensive: #f36b93;
 $color-border: #f6941c;
 
 // font
@@ -1490,7 +1490,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(152deg, #010a2e 0%, rgba(24, 28, 35, 0) 100%);
+    background: rgba($color: #000000, $alpha: 0.5);
   }
 
   position: absolute;
@@ -1498,9 +1498,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 800px;
-  background-color: rgba($color: $color-theme, $alpha: 0.9);
+  background: linear-gradient(152deg, #010a2e 0%, rgba(24, 28, 35, 0) 100%);
   border-radius: 20px;
-  border: 1px solid $color-medium;
+  border: 0.8px solid #0e1f66;
   padding: 30px;
   margin: 20px;
 
@@ -1648,7 +1648,7 @@ body {
         font-size: 28px;
 
         span {
-          font-weight: 400;
+          font-weight: 300;
         }
       }
     }
@@ -1746,12 +1746,25 @@ body {
         font-size: 16px;
         margin: 0;
         margin-bottom: 0 !important;
+        transition: 0.3s;
 
         &.desable {
           color: #616161;
         }
         &.today {
           border: 1px solid $color-white;
+        }
+      }
+
+      button {
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      &.inselect {
+        button {
+          transform: scale(1);
         }
       }
     }
