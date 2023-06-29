@@ -13,13 +13,27 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {
 
   //   generate current date
   for (let i = firstDateOfMonth.date(); i <= lastDateOfMonth.date(); i++) {
-    arrayOfDate.push({
-      date: firstDateOfMonth.date(i),
-      current: true,
-      today:
-        firstDateOfMonth.date(i).toDate().toDateString() ===
-        dayjs().toDate().toDateString(),
-    });
+    const today = dayjs();
+    const passDate = firstDateOfMonth.date(i);
+    console.log(today.diff(passDate, "day"));
+
+    if (today.diff(passDate, "day") <= 0) {
+      arrayOfDate.push({
+        date: firstDateOfMonth.date(i),
+        current: true,
+        today:
+          firstDateOfMonth.date(i).toDate().toDateString() ===
+          dayjs().toDate().toDateString(),
+      });
+    } else {
+      arrayOfDate.push({
+        date: firstDateOfMonth.date(i),
+        current: false,
+        today:
+          firstDateOfMonth.date(i).toDate().toDateString() ===
+          dayjs().toDate().toDateString(),
+      });
+    }
   }
 
   //generate suffix

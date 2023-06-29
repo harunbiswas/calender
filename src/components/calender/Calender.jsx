@@ -20,10 +20,14 @@ export default function Calender({ handler, setCheckData }) {
       if (prev.length === 0) {
         return [e];
       } else if (prev.length === 1) {
-        if (prev[0] < e) {
-          return [...prev, e];
+        if (prev[0] !== e) {
+          if (prev[0] < e) {
+            return [...prev, e];
+          } else {
+            return [e, ...prev];
+          }
         } else {
-          return [e, ...prev];
+          return [...prev];
         }
       } else if (prev.length === 2) {
         if (prev[1] > e) {
@@ -80,7 +84,7 @@ export default function Calender({ handler, setCheckData }) {
           <a href="#">check in</a>
           <strong>
             Select Date:{" "}
-            {selectDate.length === 2 &&
+            {selectDate?.length === 2 &&
               `${moment(selectDate[0]).format("DD MMMM")} to ${moment(
                 selectDate[1]
               ).format("DD MMMM")}`}

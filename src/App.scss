@@ -1674,6 +1674,7 @@ body {
     .date {
       padding: 0 7px;
       color: $color-white;
+      height: 35px;
 
       @media screen and (max-width: 768px) {
         padding: 0 5px;
@@ -1717,13 +1718,13 @@ body {
       &.selected {
         &.frist {
           padding-left: 0;
-          margin-left: 10px;
+          margin-left: 7px;
           border-radius: 10px 0 0 10px;
         }
 
         &.last {
           padding-right: 0;
-          margin-right: 10px;
+          margin-right: 7px;
           border-radius: 0 10px 10px 0;
         }
         button {
