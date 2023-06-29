@@ -81,9 +81,9 @@ export default function Calender({ handler, setCheckData }) {
           <strong>
             Select Date:{" "}
             {selectDate.length === 2 &&
-              `${moment(selectDate[0]).format("DD MMM")} to ${moment(
+              `${moment(selectDate[0]).format("DD MMMM")} to ${moment(
                 selectDate[1]
-              ).format("DD MMM")}`}
+              ).format("DD MMMM")}`}
           </strong>
         </div>
         <div className="calender-body">

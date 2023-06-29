@@ -57,6 +57,13 @@
   font-weight: 500;
 }
 
+@font-face {
+  font-family: "Chillax";
+  src: url(../src/assets/fonts/Chillax-Regular.otf) format(woff);
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
   --title: #00050c;
   --title-rgb: 0, 0, 0;
@@ -1490,7 +1497,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba($color: #000000, $alpha: 0.5);
+    background: rgba($color: #000727, $alpha: 0.4);
   }
 
   position: absolute;
@@ -1498,7 +1505,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 800px;
-  background: linear-gradient(152deg, #010a2e 0%, rgba(24, 28, 35, 0) 100%);
+  background: linear-gradient(
+    152deg,
+    #010a2e 50%,
+
+    rgba(24, 28, 35, 0) 200%
+  );
   border-radius: 20px;
   border: 0.8px solid #0e1f66;
   padding: 30px;
@@ -1529,7 +1541,7 @@ body {
       }
     }
     strong {
-      color: $color-medium;
+      color: #0d75bb;
       font-size: 18px;
       font-weight: 400;
     }
@@ -1639,6 +1651,7 @@ body {
   }
 
   &-item {
+    height: 306px;
     &-head {
       text-align: center;
       color: $color-white;
@@ -1646,10 +1659,10 @@ body {
 
       strong {
         font-size: 28px;
-
-        span {
-          font-weight: 300;
-        }
+      }
+      span {
+        font-weight: 400;
+        font-size: 34px;
       }
     }
 
@@ -1666,16 +1679,16 @@ body {
       }
 
       &.inselect {
-        background-color: rgba($color: #817474, $alpha: 0.2);
+        background-color: rgba($color: #f6941c, $alpha: 0.5);
 
         &.cheap {
-          background-color: rgba($color: $color-cheap, $alpha: 0.2);
+          background-color: rgba($color: $color-cheap, $alpha: 0.5);
         }
         &.medium {
-          background-color: rgba($color: $color-medium, $alpha: 0.2);
+          background-color: rgba($color: $color-medium, $alpha: 0.5);
         }
         &.expensive {
-          background-color: rgba($color: $color-expensive, $alpha: 0.2);
+          background-color: rgba($color: $color-expensive, $alpha: 0.5);
         }
 
         button {

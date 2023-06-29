@@ -18,10 +18,8 @@ export default function CalenderItem({ data = {}, select = [] }) {
   return (
     <div className="calender-item-wrp">
       <div className="calender-item-head">
-        <strong>
-          {" "}
-          {dates[14].date.format("MMMM")} <span> {dates[14].date.year()}</span>
-        </strong>
+        <strong> {dates[14].date.format("MMMM")}</strong>
+        <span> {dates[14].date.year()}</span>
       </div>
       <div className="calender-item">
         {days.map((d, i) => (
