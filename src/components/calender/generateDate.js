@@ -8,7 +8,11 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {
 
   // create prefix date
   for (let i = 0; i < firstDateOfMonth.day(); i++) {
-    arrayOfDate.unshift({ date: lastDateOfMonth.date(-i), current: false });
+    arrayOfDate.unshift({
+      date: lastDateOfMonth.date(-i),
+      current: false,
+      hide: true,
+    });
   }
 
   //   generate current date
@@ -20,6 +24,7 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {
       arrayOfDate.push({
         date: firstDateOfMonth.date(i),
         current: true,
+        hide: false,
         today:
           firstDateOfMonth.date(i).toDate().toDateString() ===
           dayjs().toDate().toDateString(),
@@ -28,6 +33,7 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {
       arrayOfDate.push({
         date: firstDateOfMonth.date(i),
         current: false,
+        hide: false,
         today:
           firstDateOfMonth.date(i).toDate().toDateString() ===
           dayjs().toDate().toDateString(),
@@ -43,7 +49,11 @@ const generateDate = (month = dayjs().month(), year = dayjs().year()) => {
     i <= lastDateOfMonth.date() + remaining;
     i++
   ) {
-    arrayOfDate.push({ date: lastDateOfMonth.date(i), current: false });
+    arrayOfDate.push({
+      date: lastDateOfMonth.date(i),
+      current: false,
+      hide: true,
+    });
   }
 
   return arrayOfDate;

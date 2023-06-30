@@ -27,7 +27,7 @@ export default function CalenderItem({ data = {}, select = [] }) {
             <p>{d}</p>
           </div>
         ))}
-        {dates.map(({ date, current, today }, i) => (
+        {dates.map(({ date, current, today, hide }, i) => (
           <div
             key={i}
             className={` date ${
@@ -61,7 +61,7 @@ export default function CalenderItem({ data = {}, select = [] }) {
               }
               className={`${(!current && "desable") || ""} ${
                 (today && "today") || ""
-              }   `}
+              } ${(hide && "hide") || ""}  `}
             >
               {date.date()}
             </button>

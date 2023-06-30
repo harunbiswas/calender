@@ -1525,6 +1525,10 @@ body {
     margin: 0;
   }
 
+  @media screen and (max-width: 600px) {
+    padding: 15px;
+  }
+
   &-head {
     display: flex;
     align-items: center;
@@ -1571,6 +1575,7 @@ body {
 
     @media screen and (max-width: 600px) {
       justify-content: center;
+      margin: 15px;
     }
 
     .arrow-btns {
@@ -1807,6 +1812,10 @@ body {
 
         &.desable {
           color: #616161;
+        }
+
+        &.hide {
+          display: none;
         }
         &.today {
           border: 1px solid $color-white;
