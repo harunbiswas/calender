@@ -27,8 +27,12 @@ const Footer = () => {
     setIsCalender(true);
   };
 
-  const options = {
-    weekday: "long",
+  const isMobile = /Mobi|Android/i.test(window.navigator.userAgent);
+
+  const options = (isMobile && {
+    month: "long",
+    day: "numeric",
+  }) || {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -115,7 +119,7 @@ const Footer = () => {
               type="text"
               value={
                 (checkData.start &&
-                  new Date(checkData.start).toLocaleDateString(
+                  new Date(checkData.end).toLocaleDateString(
                     "it-IT",
                     options
                   )) ||

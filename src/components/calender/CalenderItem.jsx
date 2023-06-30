@@ -3,7 +3,7 @@ import generateDate from "./generateDate";
 import specialDate from "./spisalDate";
 
 export default function CalenderItem({ data = {}, select = [] }) {
-  const days = ["S", "M", "T", "W", "T", "F", "S"];
+  const days = ["D", "L", "M", "M", "G", "V", "S"];
   const dates = generateDate(data?.month, data?.year);
 
   useEffect(() => {
