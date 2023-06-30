@@ -1,4 +1,7 @@
 import dayjs from "dayjs";
+import "dayjs/locale/it";
+
+dayjs.locale("it");
 
 const generateDate = (month = dayjs().month(), year = dayjs().year()) => {
   const firstDateOfMonth = dayjs().year(year).month(month).startOf("month");

@@ -27,6 +27,12 @@ const Footer = () => {
     setIsCalender(true);
   };
 
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
   return (
     <footer style={{ position: isKeyboardOpen ? "relative" : "sticky" }}>
       <EventListener
@@ -66,8 +72,12 @@ const Footer = () => {
             <input
               type="text"
               value={
-                (checkData.start && new Date(checkData.start).toDateString()) ||
-                new Date().toDateString()
+                (checkData.start &&
+                  new Date(checkData.start).toLocaleDateString(
+                    "it-IT",
+                    options
+                  )) ||
+                new Date().toLocaleDateString("it-IT", options)
               }
               onClick={(e) => checkHandler(e)}
             />
@@ -80,8 +90,12 @@ const Footer = () => {
             <input
               type="text"
               value={
-                (checkData.end && new Date(checkData.end).toDateString()) ||
-                new Date().toDateString()
+                (checkData.end &&
+                  new Date(checkData.end).toLocaleDateString(
+                    "it-IT",
+                    options
+                  )) ||
+                new Date().toLocaleDateString("it-IT", options)
               }
               onClick={(e) => checkHandler(e)}
             />
@@ -100,8 +114,12 @@ const Footer = () => {
             <input
               type="text"
               value={
-                (checkData.start && new Date(checkData.start).toDateString()) ||
-                new Date().toDateString()
+                (checkData.start &&
+                  new Date(checkData.start).toLocaleDateString(
+                    "it-IT",
+                    options
+                  )) ||
+                new Date().toLocaleDateString("it-IT", options)
               }
               onClick={(e) => checkHandler(e)}
             />
@@ -114,8 +132,12 @@ const Footer = () => {
             <input
               type="text"
               value={
-                (checkData.end && new Date(checkData.end).toDateString()) ||
-                new Date().toDateString()
+                (checkData.end &&
+                  new Date(checkData.end).toLocaleDateString(
+                    "it-IT",
+                    options
+                  )) ||
+                new Date().toLocaleDateString("it-IT", options)
               }
               onClick={(e) => checkHandler(e)}
             />
