@@ -22,7 +22,8 @@ const Footer = () => {
   const [isCalender, setIsCalender] = useState(false);
   const [checkData, setCheckData] = useState({});
 
-  const checkHandler = () => {
+  const checkHandler = (e) => {
+    e.target.blur();
     setIsCalender(true);
   };
 
@@ -68,7 +69,7 @@ const Footer = () => {
                 (checkData.start && new Date(checkData.start).toDateString()) ||
                 new Date().toDateString()
               }
-              onClick={checkHandler}
+              onClick={(e) => checkHandler(e)}
             />
             <span className="icon">
               <Calendar />
@@ -98,7 +99,6 @@ const Footer = () => {
             <label htmlFor="checkin">Check In</label>
             <input
               type="text"
-              disabled
               value={
                 (checkData.start && new Date(checkData.start).toDateString()) ||
                 new Date().toDateString()
