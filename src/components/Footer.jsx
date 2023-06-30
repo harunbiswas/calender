@@ -98,6 +98,7 @@ const Footer = () => {
             <label htmlFor="checkin">Check In</label>
             <input
               type="text"
+              disabled
               value={
                 (checkData.start && new Date(checkData.start).toDateString()) ||
                 new Date().toDateString()

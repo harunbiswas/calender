@@ -1501,7 +1501,7 @@ body {
   }
 
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 800px;
@@ -1515,6 +1515,10 @@ body {
   border: 0.8px solid #0e1f66;
   padding: 30px;
   margin: 20px;
+
+  @media screen and (min-width: 1024px) {
+    top: 40%;
+  }
 
   @media screen and (max-width: 768px) {
     max-width: 760px;

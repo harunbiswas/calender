@@ -13,7 +13,7 @@ export default function CalenderItem({ data = {}, select = [] }) {
       sl[0].classList.add("frist");
       sl[sl.length - 1].classList.add("last");
     }
-  }, [select.selectDate]);
+  }, [select.selectDate, data]);
 
   return (
     <div className="calender-item-wrp">
