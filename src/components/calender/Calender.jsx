@@ -119,7 +119,10 @@ export default function Calender({ handler, setCheckData }) {
               <span className="medium"></span> <p>Medium = $56</p>
             </div>
             <div>
-              <span className="expensive"></span> <p>Expensive = $84</p>
+              <span className="expensive"></span>{" "}
+              <p>
+                Expensive <p> = $84</p>
+              </p>
             </div>
           </div>
           <div className="calender-footer-btns">

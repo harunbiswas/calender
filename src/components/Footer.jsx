@@ -83,7 +83,7 @@ const Footer = () => {
                 (checkData.end && new Date(checkData.end).toDateString()) ||
                 new Date().toDateString()
               }
-              onClick={checkHandler}
+              onClick={(e) => checkHandler(e)}
             />
             <span className="icon">
               <Calendar />
@@ -103,7 +103,7 @@ const Footer = () => {
                 (checkData.start && new Date(checkData.start).toDateString()) ||
                 new Date().toDateString()
               }
-              onClick={checkHandler}
+              onClick={(e) => checkHandler(e)}
             />
             <span className="icon">
               <Calendar />
@@ -117,7 +117,7 @@ const Footer = () => {
                 (checkData.end && new Date(checkData.end).toDateString()) ||
                 new Date().toDateString()
               }
-              onClick={checkHandler}
+              onClick={(e) => checkHandler(e)}
             />
             <span className="icon">
               <Calendar />
