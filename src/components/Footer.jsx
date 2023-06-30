@@ -93,19 +93,35 @@ const Footer = () => {
             <SearchIcon /> Find a Best Hotel
           </button>
         </div>
-        <div className="footer-wrapper d-sm-none">
-          <DropdownGroup
-            label="Check In"
-            icon={<Calendar />}
-            data={checkin}
-            position="top"
-          />
-          <DropdownGroup
-            label="Check Out"
-            icon={<Calendar />}
-            data={checkout}
-            position="top"
-          />
+        <div className="footer-wrapper d-sm-none custom-dropdown-wrp">
+          <div className="custom-dropdown">
+            <label htmlFor="checkin">Check In</label>
+            <input
+              type="text"
+              value={
+                (checkData.start && new Date(checkData.start).toDateString()) ||
+                new Date().toDateString()
+              }
+              onClick={checkHandler}
+            />
+            <span className="icon">
+              <Calendar />
+            </span>
+          </div>
+          <div className="custom-dropdown">
+            <label htmlFor="checkin">Check Out</label>
+            <input
+              type="text"
+              value={
+                (checkData.end && new Date(checkData.end).toDateString()) ||
+                new Date().toDateString()
+              }
+              onClick={checkHandler}
+            />
+            <span className="icon">
+              <Calendar />
+            </span>
+          </div>
         </div>
       </div>
 
