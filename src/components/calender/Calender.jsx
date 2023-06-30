@@ -1,9 +1,15 @@
 import moment from "moment";
+import "moment/locale/it";
 import { useEffect, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import CalenderItem from "./CalenderItem";
 
 export default function Calender({ handler, setCheckData }) {
+  useEffect(() => {
+    // Set Italian as the default locale
+    moment.locale("it");
+  }, []);
+
   const [firstMon, setFirstMon] = useState({
     year: new Date().getFullYear(),
     month: new Date().getMonth(),
