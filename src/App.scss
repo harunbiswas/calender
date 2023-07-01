@@ -1534,13 +1534,17 @@ body {
     align-items: center;
     justify-content: space-between;
 
+    .btn {
+      padding: 0;
+      height: 30px;
+    }
+
     a {
       color: $color-white;
       font-size: 20px;
       text-decoration: none;
       padding: 10px;
       border-radius: 8px;
-      text-transform: capitalize;
       background-color: #305c6f;
       opacity: 0.9;
       transition: 0.3s;

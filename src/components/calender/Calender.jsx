@@ -78,6 +78,17 @@ export default function Calender({ handler, setCheckData }) {
     }
   };
 
+  const [night, setNight] = useState();
+  useEffect(() => {
+    setNight(
+      Math.ceil(
+        (new Date(selectDate[1]).getTime() -
+          new Date(selectDate[0]).getTime()) /
+          (1000 * 60 * 60 * 24)
+      )
+    );
+  }, [selectDate]);
+
   const [screenW, setScreenW] = useState(window.innerWidth);
   useEffect(() => {
     setScreenW(window.innerWidth);
@@ -87,7 +98,15 @@ export default function Calender({ handler, setCheckData }) {
     <div className="calender-wrp">
       <div className="calender">
         <div className="calender-head">
-          <a href="#">check in</a>
+          <div className="btn">
+            {selectDate?.length === 2 && (
+              <a href="#">
+                {(night && night === 1 && night + " " + "night") ||
+                  night + " " + "nights"}
+              </a>
+            )}
+          </div>
+
           <strong>
             Select Date:{" "}
             {selectDate?.length === 2 &&
@@ -119,15 +138,15 @@ export default function Calender({ handler, setCheckData }) {
         <div className="calender-footer">
           <div className="calender-footer-color">
             <div>
-              <span className="cheap"></span> <p>Cheap = $48</p>
+              <span className="cheap"></span> <p>Cheap = €</p>
             </div>
             <div>
-              <span className="medium"></span> <p>Medium = $56</p>
+              <span className="medium"></span> <p>Medium = €€</p>
             </div>
             <div>
               <span className="expensive"></span>{" "}
               <p>
-                Expensive <p> = $84</p>
+                Expensive <p> = €€€</p>
               </p>
             </div>
           </div>
