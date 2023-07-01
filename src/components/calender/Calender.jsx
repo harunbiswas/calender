@@ -101,14 +101,13 @@ export default function Calender({ handler, setCheckData }) {
           <div className="btn">
             {selectDate?.length === 2 && (
               <a href="#">
-                {(night && night === 1 && night + " " + "night") ||
-                  night + " " + "nights"}
+                {(night && night === 1 && night + " notte") || night + " notti"}
               </a>
             )}
           </div>
 
           <strong>
-            Select Date:{" "}
+            Date Selezionate:{" "}
             {selectDate?.length === 2 &&
               `${moment(selectDate[0]).format("DD MMMM")} to ${moment(
                 selectDate[1]
@@ -138,16 +137,13 @@ export default function Calender({ handler, setCheckData }) {
         <div className="calender-footer">
           <div className="calender-footer-color">
             <div>
-              <span className="cheap"></span> <p>Cheap = €</p>
+              <span className="cheap"></span> <p>€</p>
             </div>
             <div>
-              <span className="medium"></span> <p>Medium = €€</p>
+              <span className="medium"></span> <p>€€</p>
             </div>
             <div>
-              <span className="expensive"></span>{" "}
-              <p>
-                Expensive <p> = €€€</p>
-              </p>
+              <span className="expensive"></span> <p>€€€</p>
             </div>
           </div>
           <div className="calender-footer-btns">
